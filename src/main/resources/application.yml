@@ -1,0 +1,100 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    name: druidDataSource
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    #你自己的数据库IP地址和数据库名，账号以及密码
+    url: jdbc:mysql://192.168.145.128:3306/hogwarts?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&failOverReadOnly=false
+    username: root
+    password: 123456
+    druid:
+      #监控统计拦截的过滤器 不加监控界面sql无法统计 wall用于防火墙
+      filters: stat,wall,log4j,config
+      #最大连接数
+      max-active: 100
+      #初始化大小
+      initial-size: 1
+      #获取连接最大等待时间
+      max-wait: 60000
+      min-idle: 1
+      #间隔多久检测一次需要关闭的空闲连接 毫秒
+      time-between-eviction-runs-millis: 60000
+      #连接在连接池中最小生存的时间，毫秒
+      min-evictable-idle-time-millis: 300000
+      validation-query: select 'x'
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      pool-prepared-statements: true
+      max-open-prepared-statements: 50
+      max-pool-prepared-statement-per-connection-size: 20
+      web-stat-filter:
+        exclusions: "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*"
+        url-pattern: /*
+      stat-view-servlet:
+        #白名单IP
+        allow: 127.0.0.1
+        #黑名单IP
+        deny: 192.168.0.106
+        #登录账号和密码
+        login-username: admin
+        login-password: admin
+        #启用重置数据功能
+        reset-enable: true
+
+
+  #devtools插件
+  devtools:
+    livereload:
+      enabled: true #是否支持livereload
+      port: 35729
+    restart:
+      enabled: true #是否支持热部署
+
+  #redis缓存
+  redis:
+    #redis数据库索引，默认是0
+    database: 0
+    #redis服务器地址，这里用本地的redis
+    host: 127.0.0.1
+    # Redis服务器连接密码（默认为空）
+    password: 123456
+    #redis服务器连接端口，默认是6379
+    port: 6379
+    # 连接超时时间（毫秒）
+    timeout: 1000
+    jedis:
+      pool:
+        # 连接池最大连接数（使用负值表示没有限制）
+        max-active: 8
+        # 连接池最大阻塞等待时间（使用负值表示没有限制
+        max-wait: -1
+        # 连接池中的最大空闲连接
+        max-idle: 8
+        # 连接池中的最小空闲连接
+        min-idle: 0
+
+#mybatis配置
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.leo.hogwarts.entity
+  configuration:
+    # 使用jdbc的getGeneratedKeys 可以获取数据库自增主键值
+    use-generated-keys: true
+    # 使用列别名替换列名，默认true。如：select name as title from table
+    use-column-label: true
+    # 开启驼峰命名转换，如：Table(create_time) -> Entity(createTime)。不需要我们关心怎么进行字段匹配，mybatis会自动识别`大写字母与下划线`
+    map-underscore-to-camel-case: true
+
+# 打印sql
+logging:
+  level:
+    com.leo.mapper: DEBUG
+
+
+
+
+
