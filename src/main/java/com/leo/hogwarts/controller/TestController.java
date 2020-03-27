@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestController {
 
     @RequestMapping(value = "/aop",method = RequestMethod.GET)
-    public Object aopTest(){
+    public Object aopTest(String param,Integer size){
         return "success";
     }
 
