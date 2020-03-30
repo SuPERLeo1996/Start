@@ -44,7 +44,7 @@ public class HogwartsAspect {
 //    }
 
     @Around("executeService()")
-    public void doAroundAdvice(ProceedingJoinPoint proceedingJoinPoint){
+    public Object doAroundAdvice(ProceedingJoinPoint proceedingJoinPoint){
         ServletRequestAttributes servletRequestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = servletRequestAttributes.getRequest();
         logger.info("requestURL:{}",request.getRequestURL());
@@ -57,6 +57,12 @@ public class HogwartsAspect {
         logger.info("declaringTypeName:{},name:{}",memberSignature.getDeclaringTypeName(),memberSignature.getName());
         Object[] objects = proceedingJoinPoint.getArgs();
         logger.info("args:{}", JSON.toJSONString(objects));
-
+        Object obj = null;
+        try {
+            obj = proceedingJoinPoint.proceed(objects);
+        } catch (Throwable throwable) {
+            throwable.printStackTrace();
+        }
+        return obj;
     }
 }

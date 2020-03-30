@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8888
 
 spring:
   datasource:
@@ -7,9 +7,9 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.jdbc.Driver
     #你自己的数据库IP地址和数据库名，账号以及密码
-    url: jdbc:mysql://192.168.145.128:3306/hogwarts?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&failOverReadOnly=false
+    url: jdbc:mysql://rm-bp1egq19zcvebvav1no.mysql.rds.aliyuncs.com:3306/lavipeditum?useUnicode=true&autoReconnect=true&rewriteBatchedStatements=TRUE&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=true&serverTimezone=GMT%2B8
     username: root
-    password: 123456
+    password: SHboka20171115
     druid:
       #监控统计拦截的过滤器 不加监控界面sql无法统计 wall用于防火墙
       filters: stat,wall,log4j,config
@@ -59,9 +59,9 @@ spring:
     #redis数据库索引，默认是0
     database: 0
     #redis服务器地址，这里用本地的redis
-    host: 127.0.0.1
+    host: r-bp1e78afdb319724pd.redis.rds.aliyuncs.com
     # Redis服务器连接密码（默认为空）
-    password: 123456
+    password: SHboka20171115
     #redis服务器连接端口，默认是6379
     port: 6379
     # 连接超时时间（毫秒）
@@ -76,6 +76,11 @@ spring:
         max-idle: 8
         # 连接池中的最小空闲连接
         min-idle: 0
+
+  #mongoDB
+  data:
+    mongodb:
+      uri: mongodb://boka_app:SHboka20171115@dds-bp19d6d96b0be314-pub.mongodb.rds.aliyuncs.com:3717/lavipeditum
 
 #mybatis配置
 mybatis:
@@ -92,7 +97,7 @@ mybatis:
 # 打印sql
 logging:
   level:
-    com.leo.mapper: DEBUG
+    com.leo: DEBUG
 
 
 
