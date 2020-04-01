@@ -8,4 +8,7 @@ package com.leo.hogwarts.constant;
  */
 
 public class HogwartsConstant {
+
+    public static final String USER = "user";
+    public static final String TOKEN_PREFIX = "TOKEN:";
 }
