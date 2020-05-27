@@ -7,7 +7,7 @@ package com.leo.hogwarts.exception;
  * @Date 2020/3/31 15:31
  */
 
-public class AuthException extends Exception {
+public class AuthException extends RuntimeException {
 
     public AuthException(String message) {
         super(message);

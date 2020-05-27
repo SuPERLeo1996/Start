@@ -10,7 +10,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -20,17 +19,17 @@ import javax.servlet.http.HttpServletResponse;
 import java.lang.reflect.Method;
 
 /**
- * @ClassName SourceAccessInterceptor
+ * @ClassName HogwartsInterceptor
  * @Description
  * @Author Leo
  * @Date 2020/3/31 15:00
  */
-public class SourceAccessInterceptor implements HandlerInterceptor {
+public class HogwartsInterceptor implements HandlerInterceptor {
 
     @Autowired
     private RedisUtil redisUtil;
 
-    private static final Logger logger = LoggerFactory.getLogger(SourceAccessInterceptor.class);
+    private static final Logger logger = LoggerFactory.getLogger(HogwartsInterceptor.class);
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
