@@ -1,16 +1,18 @@
 package com.leo.hogwarts.annotation;
 
+import com.leo.hogwarts.constant.HogwartsConstant;
+
 import java.lang.annotation.*;
 
 /**
- * @ClassName Auth
- * @Description 登录校验注解
+ * @ClassName RateLimiter
+ * @Description 限流注解
  * @Author Leo
- * @Date 2020/3/31 14:56
+ * @Date 2020/4/28 10:49
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Target({ElementType.METHOD , ElementType.TYPE})
-public @interface Auth {
-
+public @interface RateLimit {
+    int permits() default 1;
 }
