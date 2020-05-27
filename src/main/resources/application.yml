@@ -7,7 +7,7 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.jdbc.Driver
     #你自己的数据库IP地址和数据库名，账号以及密码
-    url: jdbc:mysql://localhost:3306/lavipeditum?useUnicode=true&autoReconnect=true&rewriteBatchedStatements=TRUE&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=true&serverTimezone=GMT%2B8
+    url: jdbc:mysql://localhost:3306/test?useUnicode=true&autoReconnect=true&rewriteBatchedStatements=TRUE&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=true&serverTimezone=GMT%2B8
     username: root
     password: 123
     druid:
@@ -59,9 +59,9 @@ spring:
     #redis数据库索引，默认是0
     database: 0
     #redis服务器地址，这里用本地的redis
-    host: r-bp1e78afdb319724pd.redis.rds.aliyuncs.com
+    host: localhost
     # Redis服务器连接密码（默认为空）
-    password: SHboka20171115
+    password:
     #redis服务器连接端口，默认是6379
     port: 6379
     # 连接超时时间（毫秒）
@@ -80,7 +80,7 @@ spring:
   #mongoDB
   data:
     mongodb:
-      uri: mongodb://boka_app:SHboka20171115@dds-bp19d6d96b0be314-pub.mongodb.rds.aliyuncs.com:3717/lavipeditum
+      uri: mongodb://admin:123456@localhost:3717/test
 
 #mybatis配置
 mybatis:
