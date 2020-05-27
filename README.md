@@ -5,6 +5,7 @@
 Hogwarts是一个基于SpringBoot和MyBatis的脚手架项目，用于快速创建中小型API项目，减少重复劳动
 
 ## 简介
+
 - 统一响应结果封装
 - 统一异常处理
 - 使用简单的token登录认证
