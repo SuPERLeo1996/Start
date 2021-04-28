@@ -3,7 +3,7 @@
 <mapper namespace="com.leo.hogwarts.mapper.TestMapper" >
 
 	<select id="getTest" resultType="java.util.Map">
-		SELECT * FROM t_card
+		SELECT a.* FROM t_card a
 	</select>
     
 </mapper>
